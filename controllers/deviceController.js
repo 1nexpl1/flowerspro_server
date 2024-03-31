@@ -7,10 +7,18 @@ class DeviceController {
     async create(req, res, next) {
         try {
             let {name, price, brandId, typeId, info} = req.body
-            const {img} = req.files
+            const {img, img1, img2, img3, img4} = req.files
             let fileName = uuid.v4() + ".jpg"
+            let fileName1 = uuid.v4() + ".jpg"
+            let fileName2 = uuid.v4() + ".jpg"
+            let fileName3 = uuid.v4() + ".jpg"
+            let fileName4 = uuid.v4() + ".jpg"
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
-            const device = await Device.create({name, price, brandId, typeId, img: fileName});
+            img1.mv(path.resolve(__dirname, '..', 'static', fileName1))
+            img2.mv(path.resolve(__dirname, '..', 'static', fileName2))
+            img3.mv(path.resolve(__dirname, '..', 'static', fileName3))
+            img4.mv(path.resolve(__dirname, '..', 'static', fileName4))
+            const device = await Device.create({name, price, brandId, typeId, img: fileName, img1: fileName1,img2: fileName2,img3: fileName3,img4: fileName4});
 
             if (info) {
                 info = JSON.parse(info)
