@@ -13,11 +13,11 @@ class BrandController {
         return res.json(brands)
     }
     async deleteOne(req, res) {
-        const {id} = req.body
+        const {id} = req.params
         const brand = await Brand.destroy(
             {
-                where: {id}
-            }
+                where: {id: id}
+            }            
         )        
         return res.json(brand)
     }
