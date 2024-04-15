@@ -32,6 +32,21 @@ const Type = sequelize.define('type', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
 })
+const Post = sequelize.define('post', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    title: {type: DataTypes.STRING, unique: true, allowNull: false},
+    description: {type: DataTypes.STRING, unique: true, allowNull: false},   
+    color: {type: DataTypes.STRING, allowNull: false},   
+    imgs1: {type: DataTypes.STRING, unique: true, allowNull: false},   
+    imgs2: {type: DataTypes.STRING, unique: true, allowNull: false},
+})
+
+const Storie = sequelize.define('storie', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, unique: true, allowNull: false},
+    imgSmall: {type: DataTypes.STRING, allowNull: false},
+    imgMain: {type: DataTypes.STRING, allowNull: false},
+})
 
 const Brand = sequelize.define('brand', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
@@ -90,7 +105,9 @@ module.exports = {
     Brand,
     Rating,
     TypeBrand,
-    DeviceInfo
+    DeviceInfo,
+    Storie,
+    Post
 }
 
 
