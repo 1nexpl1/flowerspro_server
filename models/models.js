@@ -43,9 +43,9 @@ const Post = sequelize.define('post', {
 
 const Storie = sequelize.define('storie', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    name: {type: DataTypes.STRING, unique: true, allowNull: false},
+    name: {type: DataTypes.STRING, allowNull: false},
     imgSmall: {type: DataTypes.STRING, allowNull: false},
-    imgMain: {type: DataTypes.STRING, allowNull: false},
+    imgMain: {type: DataTypes.STRING,allowNull: false},
 })
 
 const Brand = sequelize.define('brand', {

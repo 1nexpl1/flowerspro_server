@@ -4,7 +4,7 @@ const { Post } = require('../models/models')
 const ApiError = require('../error/ApiError');
 
 class PostController {
-    async create(req, res) {
+    async create(req, res, next) {
         try {
             const { title, color, description } = req.body
             const { imgs1, imgs2 } = req.files
