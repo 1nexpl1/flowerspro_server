@@ -20,7 +20,7 @@ const Order = sequelize.define('orders', {
     number: {type: DataTypes.INTEGER, allowNull: false},
     value: {type: DataTypes.INTEGER, allowNull: false},
     status: {type: DataTypes.STRING, allowNull: false},
-    
+    items: {type: DataTypes.JSON, allowNull: false}
 })
 
 const BasketDevice = sequelize.define('basket_device', {

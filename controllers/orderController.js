@@ -3,8 +3,8 @@ const {Order} = require('../models/models')
 class OrderController {
     async create(req, res) {
         try {            
-            let {adress, name, number, value, status, userId} = req.body
-            const order = await Order.create({adress, name, number, value, status, userId});           
+            let {adress, name, number, value, status, userId, items} = req.body
+            const order = await Order.create({adress, name, number, value, status, userId, items});           
             return res.json(order)
         } catch (e) {
             next(ApiError.badRequest(e.message))           
@@ -14,9 +14,13 @@ class OrderController {
         let orders = await Order.findAll()
         return res.json(orders)
     }
-    async getAllPersonal(req, res) {        
-        let {UserId} = req.query
-        let orders = Order.findAndCountAll({where:{UserId}})
+    async getAllPersonal(req, res) {  
+        let {userId} = req.query  
+        let orders = await Order.findAll(
+            {
+                where: {userId: userId}
+            }
+        )
         return res.json(orders)
     }
     async deleteOne(req, res) {
