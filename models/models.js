@@ -17,7 +17,7 @@ const Order = sequelize.define('orders', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},   
     adress: {type: DataTypes.STRING, allowNull: false},
     name: {type: DataTypes.STRING, allowNull: false},
-    number: {type: DataTypes.INTEGER, allowNull: false},
+    number: {type: DataTypes.STRING, allowNull: false},
     value: {type: DataTypes.INTEGER, allowNull: false},
     status: {type: DataTypes.STRING, allowNull: false},
     items: {type: DataTypes.JSON, allowNull: false}
